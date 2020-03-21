@@ -20,6 +20,8 @@ apiVersion: apps/v1
 kind: Deployment  
 metadata:  
   name: clean-backend-deployment # nombre del deployment
+  labels:
+    app: clean-backend
 spec:  
   replicas: 2  # numero de replicas
   selector:
