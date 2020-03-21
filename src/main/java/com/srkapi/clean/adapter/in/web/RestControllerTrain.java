@@ -3,6 +3,7 @@ package com.srkapi.clean.adapter.in.web;
 import com.srkapi.clean.application.port.in.model.CreateTrainCommand;
 import com.srkapi.clean.application.port.in.model.ResponseCreateTrain;
 import com.srkapi.clean.application.port.usecases.CreateTrainUseCases;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -26,6 +27,11 @@ public class RestControllerTrain {
 
         ResponseCreateTrain result = this.createTrainUseCases.process(createTrainCommand);
         return new ResponseEntity<ResponseCreateTrain>(result,HttpStatus.OK);
+    }
+
+    @GetMapping
+    public String hello(){
+                return "holita";
     }
 
 
