@@ -1,12 +1,11 @@
-apiVersion: v1  
+apiVersion: v1
 kind: Service
-
-metadata:  
+metadata:
   name: clean-service
   namespace: Default
-  labels:  
+  labels:
     app: clean-backend
-spec:  
+spec:
   selector:
     app: clean-backend
   type: LoadBalancer
@@ -15,27 +14,27 @@ spec:
       targetPort: 8080
 
 
----  
+---
 apiVersion: apps/v1
-kind: Deployment  
-metadata:  
+kind: Deployment
+metadata:
   name: clean-backend-deployment # nombre del deployment
   labels:
     app: clean-backend
-spec:  
+spec:
   replicas: 2  # numero de replicas
   selector:
     matchLabels:
       app: clean-backend # etiqeutas qeu tiene que hacer caso el RS
 
-  template:  
-    metadata:  
+  template:
+    metadata:
       labels:  clean-backend
         app: clean-backend
 
     spec:
-      containers:  
+      containers:
         - name: clean-backend
           image: clean-example:v2
-          imagePullPolicy: IfnotPresent
+          imagePullPolicy: IfNotPresent
 
