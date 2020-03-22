@@ -55,10 +55,5 @@ public class RestControllerTrain {
         return result;
     }
 
-    @GetMapping
-    public String hello() {
-        return "holita";
-    }
-
 
 }

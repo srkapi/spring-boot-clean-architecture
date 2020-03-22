@@ -42,5 +42,4 @@ public class TrainAdapterPersistence implements PersistenceTrainPort, FindTrainB
         return optional;
     }
 
-    ;
 }
