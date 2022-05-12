@@ -1,4 +1,4 @@
-package com.srkapi.clean.common.annotation;
+package com.srkapi.clean.adapter.in.web.annotation;
 
 
 import javax.validation.Constraint;

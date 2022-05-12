@@ -1,9 +1,7 @@
 package com.srkapi.clean.application.port.out;
 
-import com.srkapi.clean.application.domain.Train;
-
-import java.util.Optional;
+import com.srkapi.clean.domain.entities.Train;
 
 public interface FindTrainBySerialNumberPort {
-    Optional findBySerialNumber(String serialNumber);
+    Train findBySerialNumber(String serialNumber);
 }

@@ -1,8 +1,7 @@
 package com.srkapi.clean.application.port.out;
 
-import java.util.Optional;
+import com.srkapi.clean.domain.entities.Train;
 
 public interface FindTrainByIdPort {
-
-    Optional findById(Long id);
+    Train findById(Long id);
 }

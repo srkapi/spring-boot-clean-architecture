@@ -1,4 +1,4 @@
-package com.srkapi.clean.application.domain;
+package com.srkapi.clean.domain.entities;
 
 import lombok.Builder;
 import lombok.Getter;

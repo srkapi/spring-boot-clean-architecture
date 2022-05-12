@@ -1,9 +1,9 @@
 package com.srkapi.clean.application.port.in.mapper;
 
 
-import com.srkapi.clean.application.domain.Train;
+import com.srkapi.clean.domain.entities.Train;
 import com.srkapi.clean.application.port.in.model.CreateTrainCommand;
-import com.srkapi.clean.application.port.in.model.ResponseCreateTrain;
+import com.srkapi.clean.application.port.in.model.CreateTrainResponse;
 import com.srkapi.clean.application.port.in.model.ResponseFindByIdTrain;
 import org.springframework.stereotype.Component;
 
@@ -15,8 +15,8 @@ public class MapperDomain {
                 .build();
     }
 
-    public ResponseCreateTrain toResponse(Train responsePersistence) {
-        return ResponseCreateTrain.builder()
+    public CreateTrainResponse toResponseCreateTrain(Train responsePersistence) {
+        return CreateTrainResponse.builder()
                 .id(responsePersistence.getId())
                 .serialNumber(responsePersistence.getSerialNumber())
                 .build();

@@ -1,4 +1,4 @@
-package com.srkapi.clean.application.exception;
+package com.srkapi.clean.domain.exception;
 
 public class ErrorPersistenceException extends RuntimeException {
 }
