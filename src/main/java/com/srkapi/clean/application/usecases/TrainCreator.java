@@ -16,7 +16,7 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CreateTrainService implements CreateTrainUseCase {
+public class TrainCreator implements CreateTrainUseCase {
 
 	private final FindTrainBySerialNumberPort findTrainBySerialNumberPort;
 	private final PersistenceTrainPort persistenceTrainPort;

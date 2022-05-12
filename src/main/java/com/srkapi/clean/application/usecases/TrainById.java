@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 @Slf4j
 @RequiredArgsConstructor
-public class FindTrainByIdService implements FindTrainByIdUseCase {
+public class TrainById implements FindTrainByIdUseCase {
 	private final FindTrainByIdPort findTrainByidPort;
 	private final MapperDomain mapperDomain;
 
