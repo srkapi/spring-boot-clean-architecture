@@ -2,7 +2,7 @@ package com.srkapi.clean.application.usecases;
 
 import com.srkapi.clean.application.port.in.mapper.MapperDomain;
 import com.srkapi.clean.application.port.in.model.CreateTrainCommand;
-import com.srkapi.clean.application.port.in.model.CreateTrainResponse;
+import com.srkapi.clean.adapter.in.web.response.CreateTrainResponse;
 import com.srkapi.clean.application.port.out.FindTrainBySerialNumberPort;
 import com.srkapi.clean.application.port.out.PersistenceTrainPort;
 import com.srkapi.clean.application.port.usecases.CreateTrainUseCase;
@@ -26,7 +26,6 @@ public class TrainCreator implements CreateTrainUseCase {
 	@Override
 	public CreateTrainResponse execute(CreateTrainCommand createTrainCommand) {
 		Train train = mapperTrain.toDomain(createTrainCommand);
-
 		String serialNumber = UUID.randomUUID().toString();
 		verifyIfSerialNumberExist(serialNumber);
 		train.setSerialNumber(serialNumber);

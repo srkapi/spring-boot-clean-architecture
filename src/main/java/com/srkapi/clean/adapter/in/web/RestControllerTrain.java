@@ -1,7 +1,8 @@
 package com.srkapi.clean.adapter.in.web;
 
+import com.srkapi.clean.adapter.in.web.request.CreateTrainRequest;
 import com.srkapi.clean.application.port.in.model.CreateTrainCommand;
-import com.srkapi.clean.application.port.in.model.CreateTrainResponse;
+import com.srkapi.clean.adapter.in.web.response.CreateTrainResponse;
 import com.srkapi.clean.application.port.in.model.ResponseFindByIdTrain;
 import com.srkapi.clean.application.port.usecases.CreateTrainUseCase;
 import com.srkapi.clean.application.port.usecases.FindTrainByIdUseCase;
@@ -27,9 +28,8 @@ public class RestControllerTrain {
 
 
 	@PostMapping
-	public ResponseEntity<CreateTrainResponse> createTrain(
-			@Valid @RequestBody CreateTrainCommand createTrainCommand) {
-		CreateTrainResponse result = this.createTrainUseCases.execute(createTrainCommand);
+	public ResponseEntity<CreateTrainResponse> createTrain(@Valid @RequestBody CreateTrainRequest createTrainCommand) {
+		CreateTrainResponse result = this.createTrainUseCases.execute(new CreateTrainCommand(createTrainCommand.getNumberCarriage()));
 		return new ResponseEntity<>(result, OK);
 	}
 

@@ -1,4 +1,4 @@
-package com.srkapi.clean.application.port.in.model;
+package com.srkapi.clean.adapter.in.web.response;
 
 import lombok.*;
 

@@ -5,11 +5,11 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Builder
-@Getter
 @Setter
+@Getter
 public class Train {
-    private Long id;
-    private Long numberCarriage;
-    private String serialNumber;
+	private Long id;
+	private Long numberCarriage;
+	private String serialNumber;
 
 }

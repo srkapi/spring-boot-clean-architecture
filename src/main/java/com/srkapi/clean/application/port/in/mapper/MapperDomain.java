@@ -3,7 +3,7 @@ package com.srkapi.clean.application.port.in.mapper;
 
 import com.srkapi.clean.domain.entities.Train;
 import com.srkapi.clean.application.port.in.model.CreateTrainCommand;
-import com.srkapi.clean.application.port.in.model.CreateTrainResponse;
+import com.srkapi.clean.adapter.in.web.response.CreateTrainResponse;
 import com.srkapi.clean.application.port.in.model.ResponseFindByIdTrain;
 import org.springframework.stereotype.Component;
 
