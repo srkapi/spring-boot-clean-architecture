@@ -16,7 +16,7 @@ import java.util.Optional;
 
 @Component
 @RequiredArgsConstructor
-public class TrainAdapterPersistence implements PersistenceTrainPort, FindTrainBySerialNumberPort, FindTrainByIdPort {
+public class MysqlAdapterPersistence implements PersistenceTrainPort, FindTrainBySerialNumberPort, FindTrainByIdPort {
 	private final TrainRepository trainRepository;
 	private final MapperPersistence mapperPersistence;
 
