@@ -1,14 +1,12 @@
 package com.srkapi.clean.application.usecases;
 
-import com.srkapi.clean.domain.exception.TrainDoesNotExistException;
+public interface UseCase<I extends UseCase.InputValues, O extends UseCase.OutputValues> {
 
-public abstract class UseCase<I extends UseCase.InputValues, O extends UseCase.OutputValues> {
+	O execute(I input) throws Exception;
 
-    public abstract O execute(I input) throws Exception;
+	interface InputValues {
+	}
 
-    public interface InputValues {
-    }
-
-    public interface OutputValues {
-    }
+	interface OutputValues {
+	}
 }

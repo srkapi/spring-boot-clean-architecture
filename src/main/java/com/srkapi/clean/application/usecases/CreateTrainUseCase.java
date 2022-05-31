@@ -1,6 +1,6 @@
 package com.srkapi.clean.application.usecases;
 
-import com.srkapi.clean.application.port.in.mapper.MapperDomain;
+import com.srkapi.clean.application.port.in.mapper.DomainMapper;
 import com.srkapi.clean.application.port.out.FindTrainBySerialNumberPort;
 import com.srkapi.clean.application.port.out.PersistenceTrainPort;
 import com.srkapi.clean.domain.entities.Train;
@@ -13,22 +13,19 @@ import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
-public class CreateTrainUseCase extends UseCase<CreateTrainUseCase.CreateTrainCommand, CreateTrainUseCase.CreateTrainResponse> {
+public class CreateTrainUseCase implements UseCase<CreateTrainUseCase.CreateTrainInput, CreateTrainUseCase.CreateTrainOutput> {
 
 	private final FindTrainBySerialNumberPort findTrainBySerialNumberPort;
 	private final PersistenceTrainPort persistenceTrainPort;
-	private final MapperDomain mapperTrain;
-
-
 
 	@Override
-	public CreateTrainResponse execute(CreateTrainCommand input) {
-		Train train = mapperTrain.toDomain(input);
+	public CreateTrainOutput execute(CreateTrainInput input) {
+		Train train = DomainMapper.toDomain(input);
 		String serialNumber = UUID.randomUUID().toString();
 		verifyIfSerialNumberExist(serialNumber);
 		train.setSerialNumber(serialNumber);
 		train.setId(this.persistenceTrainPort.saveTrain(train));
-		return this.mapperTrain.toResponseCreateTrain(train);
+		return DomainMapper.toResponseCreateTrain(train);
 	}
 
 	private void verifyIfSerialNumberExist(String serialNumber) {
@@ -38,16 +35,14 @@ public class CreateTrainUseCase extends UseCase<CreateTrainUseCase.CreateTrainCo
 	}
 
 	@Value
-	public static class CreateTrainCommand implements UseCase.InputValues {
+	public static class CreateTrainInput implements UseCase.InputValues {
 		Long carriageNumber;
 	}
 
 	@Getter
 	@Setter
-	@AllArgsConstructor
-	@NoArgsConstructor
 	@Builder
-	public static class CreateTrainResponse implements UseCase.OutputValues {
+	public static class CreateTrainOutput implements UseCase.OutputValues {
 		Long id;
 		String serialNumber;
 	}

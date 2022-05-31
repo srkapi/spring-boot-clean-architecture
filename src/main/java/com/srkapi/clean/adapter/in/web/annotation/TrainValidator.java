@@ -6,15 +6,14 @@ import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintValidatorContext;
 
 
-public class TrainValidator implements ConstraintValidator<TrainCreatedValid, CreateTrainUseCase.CreateTrainCommand> {
+public class TrainValidator implements ConstraintValidator<TrainCreatedValid, CreateTrainUseCase.CreateTrainInput> {
     @Override
     public void initialize(TrainCreatedValid constraintAnnotation) {
 
     }
 
     @Override
-    public boolean isValid(CreateTrainUseCase.CreateTrainCommand value, ConstraintValidatorContext context) {
-
+    public boolean isValid(CreateTrainUseCase.CreateTrainInput value, ConstraintValidatorContext context) {
         return true;
     }
 }
